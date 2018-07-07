@@ -5,7 +5,7 @@
                 @if($category->parent_id == $category_list->id)
                     selected=""
                 @endif
-                @if($category->id == $cateory_list->id)
+                @if($category->id == $category_list->id)
                     hidden=""
                 @endif
             @endisset
