@@ -9,7 +9,7 @@
         @endcomponent
 
 
-        <hr>
+        <hr/>
         <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right">
             <i class="fa fa-plus-square-a">Создать категорию</i>
         </a>
