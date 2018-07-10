@@ -13,7 +13,7 @@ class BlogController extends Controller
 
         return view('blog.category', [
             'category'=>$category,
-            'article'=>$category->articles()->where('published', 1)->paginate(12),
+            'articles'=>$category->articles()->where('published', 1)->paginate(12),
         ]);
     }
 

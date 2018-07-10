@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>robot.saigla.ru</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,9 +30,9 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
+                    {{--robot.saigla.ru--}}
+                {{--</a>--}}
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -41,11 +41,17 @@
                     <li>
                         <a href="{{route('admin.index')}}">Панель состояния</a>
                     </li>
-                    &nbsp;<li class="dropdown">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Блог</a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{route('admin.category.index')}}">Категории</a></li>
                             <li><a href="{{route('admin.article.index')}}">Материалы</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Управление пользователями</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{route('admin.user_managment.User.index')}}">Пользватели</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -54,8 +60,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Авторизация</a></li>
+                        <li><a href="{{ route('register') }}">Регистрация</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -86,7 +92,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/vel-ckeditor/ckeditor.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
