@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/editBootstrap.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
@@ -30,9 +31,9 @@
                 </button>
 
                 <!-- Branding Image -->
-                {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                    {{--robot.saigla.ru--}}
-                {{--</a>--}}
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ url('/images/gear.png') }}" height="50px" width="50px" >
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

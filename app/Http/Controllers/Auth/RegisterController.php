@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Role;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -67,6 +68,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'birthday' => $data['birthday'],
             'password' => bcrypt($data['password']),
+            'aboutOneself' => $data['aboutOneself'],
+            'receiveLetter' => $data['receiveLetter'],
+            'avatar' => 'http://robot.saigla/public/uploads/avatars/default.jpg',
         ]);
         $user
             ->roles()

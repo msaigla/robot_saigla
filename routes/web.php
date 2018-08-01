@@ -10,14 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Categories and Articles
 Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
 Route::get('/blog/article/{slug?}', 'BlogController@article')->name('article');
 
-Route::group(['prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth']], function (){
-    Route::resource('/user', 'UserController');
-});
-
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function(){
+//Administrator
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'roles', 'roles'=>['Админ']], function(){
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
     Route::resource('/category', 'CategoryController', ['as'=>'admin']);
     Route::resource('/article', 'ArticleController', ['as'=>'admin']);
@@ -26,8 +24,11 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], 
     });
 });
 
+//Users
+Route::get('/profile', 'ProfileController@profile')->middleware('auth');
+Route::post('/addProfile', 'ProfileController@addProfile')->middleware('auth');
 
-
+//Soft
 Route::get('/', function () {
     return view('blog.home');
 });
