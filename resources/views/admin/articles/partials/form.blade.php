@@ -27,6 +27,9 @@
 <label for="">Полное описание</label>
 <textarea class="form-control" id="description" name="description">{{$article->description or ""}}</textarea>
 
+<label for="">Фото статьи:</label>
+<input id="image" type="file" class="form-control" name="image">
+
 <label for="">Мета заголовок</label>
 <input type="text" class="form-control" name="meta_title" placeholder="Мета материала" value="{{$article->meta_title or ""}}">
 

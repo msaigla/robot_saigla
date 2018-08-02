@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 use App\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
+
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -47,6 +52,17 @@ class ArticleController extends Controller
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
         endif;
+
+        if (Input::hasFile('image')) {
+            $file = Input::file('image');;
+            $file->move(public_path() . '/uploads/articles_image/' , $article->id);
+            $url = URL::to("/") . '/uploads/articles_image/' . $article->id;
+            DB::table('articles')
+                ->where('id', $article->id)
+                ->update([
+                    'image' => $url,
+                ]);
+        }
 
         return redirect()->route('admin.article.index');
 

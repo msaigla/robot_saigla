@@ -8,7 +8,11 @@
             @slot('active') Статьи @endslot
         @endcomponent
 
-
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
         <hr/>
         <a href="{{route('admin.article.create')}}" class="btn btn-primary pull-right">
             <i class="fa fa-plus-square-a">Создать статью</i>

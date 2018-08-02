@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="phone" class="col-md-4 control-label">О себе: </label>
+                            <label for="aboutOneself" class="col-md-4 control-label">О себе: </label>
                             <div class="col-md-6">
                                 <textarea rows="3" class="form-control" maxlength="255" id="aboutOneself" name="aboutOneself" placeholder="Расскожите немного о себе">{{ Auth::user()->aboutOneself }}</textarea>
                             </div>

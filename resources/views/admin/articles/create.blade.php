@@ -10,7 +10,7 @@
 
         <hr/>
 
-        <form class="form-horizontal" action="{{route('admin.article.store')}}" method="post">
+        <form class="form-horizontal" action="{{route('admin.article.store')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
 
             @include('admin.articles.partials.form')
