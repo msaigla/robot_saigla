@@ -10,9 +10,12 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>{{$article->title}}</h4></div>
-                        <div class="panel-body">
-                            <p>{!! $article->description !!}</p>
-                        </div>
+                    @if($article->videoBool)
+                        <center><iframe width="560" height="315" src="{{$article->video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>
+                    @endif
+                    <div class="panel-body">
+                        <p>{!! $article->description !!}</p>
+                    </div>
                 </div>
             </div>
         </div>

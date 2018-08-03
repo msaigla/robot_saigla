@@ -30,6 +30,22 @@
 <label for="">Фото статьи:</label>
 <input id="image" type="file" class="form-control" name="image">
 
+<label class="checkbox-inline">
+    <input id="downloadFileBool" type="hidden" name="downloadFileBool" value="0">
+    <input id="downloadFileBool" type="checkbox" value="1" name="downloadFileBool" checked>  <p>Добавить файл к статье?</p>
+</label>
+<label for="">Файл:</label>
+<input id="downloadFile" type="file" class="form-control" name="downloadFile">
+
+<label class="checkbox-inline">
+    <input id="videoBool" type="hidden" name="videoBool" value="0">
+    <input id="videoBool" type="checkbox" value="1" name="videoBool" checked> <p>Добавить видео к статье?</p>
+</label>
+
+<label for="">Src видео:</label>
+<input type="text" class="form-control" name="video" value="{{$article->video or ""}}">
+
+
 <label for="">Мета заголовок</label>
 <input type="text" class="form-control" name="meta_title" placeholder="Мета материала" value="{{$article->meta_title or ""}}">
 

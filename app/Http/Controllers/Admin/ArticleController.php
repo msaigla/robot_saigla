@@ -53,14 +53,24 @@ class ArticleController extends Controller
             $article->categories()->attach($request->input('categories'));
         endif;
 
-        if (Input::hasFile('image')) {
-            $file = Input::file('image');;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');;
             $file->move(public_path() . '/uploads/articles_image/' , $article->id);
             $url = URL::to("/") . '/uploads/articles_image/' . $article->id;
             DB::table('articles')
                 ->where('id', $article->id)
                 ->update([
                     'image' => $url,
+                ]);
+        }
+        if ($request->hasFile('downloadFile')) {
+            $file = $request->file('downloadFile');;
+            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
+            $url = URL::to("/") . '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            DB::table('articles')
+                ->where('id', $article->id)
+                ->update([
+                    'downloadFile' => $url,
                 ]);
         }
 
@@ -109,6 +119,27 @@ class ArticleController extends Controller
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
         endif;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');;
+            $file->move(public_path() . '/uploads/articles_image/' , $article->id);
+            $url = URL::to("/") . '/uploads/articles_image/' . $article->id;
+            DB::table('articles')
+                ->where('slug', $request->except('slug'))
+                ->update([
+                    'image' => $url,
+                ]);
+        }
+        if ($request->hasFile('downloadFile')) {
+            $file = $request->file('downloadFile');;
+            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
+            $url = URL::to("/") . '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            DB::table('articles')
+                ->where('id', $article->id)
+                ->update([
+                    'downloadFile' => $url,
+                ]);
+        }
 
         return redirect()->route('admin.article.index');
     }
