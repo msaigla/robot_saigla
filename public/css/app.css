@@ -5688,7 +5688,7 @@ tbody.collapse.in {
 }
 
 .navbar-default {
-  background-color: #24292e;
+  background-color: #fff;
   border-color: #d3e0e9;
 }
 
@@ -5707,7 +5707,7 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: #777;
 }
 
 .navbar-default .navbar-nav > li > a:hover,

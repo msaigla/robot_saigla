@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['Пользователь', 'Админ']);
         return view('home');
+    }
+
+    public function refreshCaptcha(){
+        return response()->json(['captcha' => captcha_img()]);
     }
     /*
     public function someAdminStuff(Request $request)

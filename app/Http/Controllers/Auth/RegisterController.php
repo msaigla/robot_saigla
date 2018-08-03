@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'captcha' => 'required|captcha',
         ]);
     }
 
@@ -70,7 +71,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'aboutOneself' => $data['aboutOneself'],
             'receiveLetter' => $data['receiveLetter'],
-            'avatar' => 'http://robot.saigla/public/uploads/avatars/default.jpg',
+            'avatar' => 'http://robot.saigla.ru/uploads/avatars/default.jpg',
         ]);
         $user
             ->roles()

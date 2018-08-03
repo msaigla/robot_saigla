@@ -36,3 +36,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');

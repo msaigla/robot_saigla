@@ -980,8 +980,8 @@ module.exports = __webpack_require__(42);
 __webpack_require__(11);
 
 $(document).ready(function () {
-  CKEDITOR.replace('description_short');
-  CKEDITOR.replace('description');
+    CKEDITOR.replace('description_short');
+    CKEDITOR.replace('description');
 });
 
 window.Vue = __webpack_require__(35);
@@ -995,7 +995,17 @@ window.Vue = __webpack_require__(35);
 Vue.component('example-component', __webpack_require__(38));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
+});
+
+$(".btn-refresh").click(function () {
+    $.ajax({
+        type: 'GET',
+        url: '/refresh_captcha',
+        success: function success(data) {
+            $(".captcha span").html(data.captcha);
+        }
+    });
 });
 
 /***/ }),

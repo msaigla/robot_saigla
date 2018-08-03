@@ -2,6 +2,12 @@
 .navbar-default .navbar-nav > li > a:focus {
     color: #8a8888;
 }
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-default {
+    background-color: #24292e;
+}
 body {
     font-family: Times New Roman, sans-serif;
     font-size: 14px;
