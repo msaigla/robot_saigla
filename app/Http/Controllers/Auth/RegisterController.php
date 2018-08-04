@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'aboutOneself' => $data['aboutOneself'],
             'receiveLetter' => $data['receiveLetter'],
-            'avatar' => 'http://robot.saigla.ru/uploads/avatars/default.jpg',
+            'avatar' => '/uploads/avatars/default.jpg',
         ]);
         $user
             ->roles()

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\URL;
@@ -48,32 +49,23 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('downloadFile')) {
+            $file = $request->File('downloadFile');
+            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
+            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            $request->merge(['downloadFile' => $url]);
+        }
+        if ($request->hasFile('image')) {
+            $file = $request->File('image');
+            $token = sha1(time());
+            $file->move(public_path() . '/uploads/articles_image/' , $token);
+            $url = '/uploads/articles_image/' . $token;
+            $request->merge(['image' => $url]);
+        }
         $article = Article::create($request->all());
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
         endif;
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');;
-            $file->move(public_path() . '/uploads/articles_image/' , $article->id);
-            $url = URL::to("/") . '/uploads/articles_image/' . $article->id;
-            DB::table('articles')
-                ->where('id', $article->id)
-                ->update([
-                    'image' => $url,
-                ]);
-        }
-        if ($request->hasFile('downloadFile')) {
-            $file = $request->file('downloadFile');;
-            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
-            $url = URL::to("/") . '/uploads/articles_files/' . $file->getClientOriginalExtension();
-            DB::table('articles')
-                ->where('id', $article->id)
-                ->update([
-                    'downloadFile' => $url,
-                ]);
-        }
-
         return redirect()->route('admin.article.index');
 
     }
@@ -113,33 +105,28 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->update($request->except('slug'));
-
+        if ($request->hasFile('image')) {
+            app(Filesystem::class)->delete(public_path($article->getAttribute('image')));
+            $file = $request->File('image');
+            $token = sha1(time());
+            $file->move(public_path() . '/uploads/articles_image/' , $token);
+            $url = '/uploads/articles_image/' . $token;
+            $request->merge(['image' => $url]);
+            $article->setAttribute('image', $url);
+            //return redirect('/home')->with('status', $article->getAttribute('image'));
+        }
+        if ($request->hasFile('downloadFile')) {
+            $file = $request->File('downloadFile');;
+            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
+            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            $request->merge(['downloadFile' => $url]);
+            $article->update($request->only('downloadFile'));
+        }
+        $article->update($request->except('slug', 'image', 'downloadFle'));
         $article->categories()->detach();
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
         endif;
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');;
-            $file->move(public_path() . '/uploads/articles_image/' , $article->id);
-            $url = URL::to("/") . '/uploads/articles_image/' . $article->id;
-            DB::table('articles')
-                ->where('slug', $request->except('slug'))
-                ->update([
-                    'image' => $url,
-                ]);
-        }
-        if ($request->hasFile('downloadFile')) {
-            $file = $request->file('downloadFile');;
-            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
-            $url = URL::to("/") . '/uploads/articles_files/' . $file->getClientOriginalExtension();
-            DB::table('articles')
-                ->where('id', $article->id)
-                ->update([
-                    'downloadFile' => $url,
-                ]);
-        }
 
         return redirect()->route('admin.article.index');
     }
@@ -154,6 +141,8 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->categories()->detach();
+        if($article->getAttribute('image')!=null)app(Filesystem::class)->delete(public_path($article->getAttribute('image')));
+        if($article->getAttribute('downloadFile')!=null)app(Filesystem::class)->delete(public_path($article->getAttribute('downloadFile')));
         $article->delete();
         return redirect()->route('admin.article.index');
     }

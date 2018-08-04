@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\UserManagment;
 
 use App\User;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
@@ -126,6 +127,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $user->roles()->detach();
+        if('/uploads/avatars/default.jpg' != $user->getAttribute('avatar'))app(Filesystem::class)->delete(public_path($user->getAttribute('avatar')));
         $user->delete();
 
         return redirect()->route('admin.user_managment.User.index');

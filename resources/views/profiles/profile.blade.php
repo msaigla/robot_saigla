@@ -49,7 +49,7 @@
                             <label for="avatar" class="col-md-4 control-label">Аватар:</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control" name="avatar">
+                                <input id="avatar" type="file" class="form-control" name="avatar" accept="image/jpeg,image/png">
                             </div>
                         </div>
 
