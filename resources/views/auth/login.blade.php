@@ -7,6 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Авторизация</div>
 
+                @include('partials.flash')
+
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

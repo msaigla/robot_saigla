@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'birthday', 'birthday', 'receiveLetter',
+        'name', 'email', 'password', 'avatar', 'birthday', 'receiveLetter', 'confirmed',
     ];
 
     /**
@@ -70,5 +70,23 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    /**
+     * Boot the model
+     */
+    public static function boot(){
+        parent::boot();
+
+        static::creating(function ($user){
+            $user->token = str_random(25);
+        });
+    }
+
+    public function hasVerified(){
+        $this->confirmed = true;
+        $this->token = null;
+
+        $this->save();
     }
 }

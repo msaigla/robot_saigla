@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\ConfirmatonEmail;
 use App\Role;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -72,10 +76,28 @@ class RegisterController extends Controller
             'aboutOneself' => $data['aboutOneself'],
             'receiveLetter' => $data['receiveLetter'],
             'avatar' => '/uploads/avatars/default.jpg',
+            'confirmed' => false,
         ]);
         $user
             ->roles()
             ->attach(Role::where('name', 'Пользователь')->first());
         return $user;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        Mail::to($user->email)->send(new ConfirmatonEmail($user));
+
+        return back()->with('status', 'Подтвердить свой адрес электронной почты.');
+    }
+
+    public function confirmEmail($token){
+        User::whereToken($token)->firstOrFail()->hasVerified();
+
+        return redirect('login')->with('status', 'Вы подтвердили свой адрес электронной почты. Теперь вы можете авторизоватья.');
     }
 }

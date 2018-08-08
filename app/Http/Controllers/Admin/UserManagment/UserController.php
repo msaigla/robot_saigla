@@ -7,6 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -48,11 +49,15 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
+            'avatar' => '/uploads/avatars/default.jpg',
         ]);
+        $user
+            ->roles()
+            ->attach(Role::where('name', 'Пользователь')->first());
 
         return redirect()->route('admin.user_managment.User.index');
 
