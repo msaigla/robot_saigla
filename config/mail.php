@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@saigla.ru'),
+        'address' => env('MAIL_FROM_ADDRESS', 'msaigla@yandex.ru'),
         'name' => env('MAIL_FROM_NAME', 'ROBOT SAIGLA'),
     ],
 
