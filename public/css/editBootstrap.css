@@ -8,6 +8,67 @@
 .navbar-default {
     background-color: #24292e;
 }
+.btn-primary {
+    color: #000;
+    background-color: #00c700;
+    border-color: #33a733;
+}
+.btn-success {
+    color: #000;
+    background-color: #f6871f;
+    border-color: #f78a24;
+}
+.btn-success:hover {
+    color: #000;
+    background-color: #ff922d;
+    border-color: #f6871f;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+    color: #000;
+    background-color: #00c700;
+    border-color: #008c0e;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #00c700;
+    border-color: #008c0e;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #00c700;
+    border-color: #008c0e;
+}
+
+.btn-primary:active:hover,
+.btn-primary:active:focus,
+.btn-primary:active.focus,
+.btn-primary.active:hover,
+.btn-primary.active:focus,
+.btn-primary.active.focus,
+.open > .btn-primary.dropdown-toggle:hover,
+.open > .btn-primary.dropdown-toggle:focus,
+.open > .btn-primary.dropdown-toggle.focus {
+    color: #000;
+    background-color: #00c700;
+    border-color: #008c0e;
+}
+.btn-success:active:hover,
+.btn-success:active:focus,
+.btn-success:active.focus,
+.btn-success.active:hover,
+.btn-success.active:focus,
+.btn-success.active.focus,
+.open > .btn-success.dropdown-toggle:hover,
+.open > .btn-success.dropdown-toggle:focus,
+.open > .btn-success.dropdown-toggle.focus {
+    color: #000;
+    background-color: #ff922d;
+    border-color: #f6871f;
+}
 body {
     font-family: Times New Roman, sans-serif;
     font-size: 14px;

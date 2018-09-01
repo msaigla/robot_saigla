@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Request;
 use Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 use Symfony\Component\HttpFoundation\File\File;
 
 class ProfileController extends Controller
@@ -37,6 +38,17 @@ class ProfileController extends Controller
                     'birthday' => $request->input('birthday'),
                     'avatar' => $url,
                 ]);
+            //open image
+//            $img = Image::make($url);
+//            $img->resize(400, null, function ($constraint) {
+//                $constraint->aspectRatio();
+//            });
+//            // read height of image
+//            $height = $img->height();
+//            // resize only the width of the image
+//            if($height < 400) $img->resize($height, null);
+//            // resize only the height of the image
+//            if(400 < $height) $img->resize(null, 400);
             return redirect('/home')->with('status', 'Профиль изменен.');
         }else {
             DB::table('users')
