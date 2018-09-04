@@ -12,7 +12,7 @@
                     <p>{!! $article->description_short !!}</p>
                 </div>
             @empty
-                <h2 class="text-center">Пусто</h2>"
+                <h2 class="text-center">Пусто</h2>
             @endforelse
         </div>
 
