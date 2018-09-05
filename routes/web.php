@@ -30,9 +30,7 @@ Route::post('/addProfile', 'ProfileController@addProfile')->middleware('auth');
 Route::get('/register/confirm/{token}', 'Auth\RegisterController@confirmEmail')->name('confirmEmail');
 
 //Soft
-Route::get('/', function () {
-    return view('blog.home');
-});
+Route::get('/', 'MainPageController@mainPage')->name('index');
 
 Auth::routes();
 

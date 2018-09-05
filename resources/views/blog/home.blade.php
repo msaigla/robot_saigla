@@ -14,7 +14,7 @@
             <!-- Слайд 2 -->
             <div class="item">
                 <h2>Предложить урок.</h2>
-                <p>Вы можете предложить свой урок по робототехнике с помощью обратной связи в личном кабинете или написав сообщение на почту lesson@saigla.ru</p>
+                <p>Вы можете предложить свой урок по робототехнике написав письмо на почту lesson@saigla.ru c прикрепленным уроком в pdf или doc формате.</p>
                 <a href="{{ url('/home') }}"><button class="btn btn-success btn-lg">Личный кабинет</button></a>
             </div>
         </div>
@@ -28,6 +28,19 @@
         <a class="right carousel-control" href="#testCarousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
+    </div>
+    <div class="container">
+        <div class="row">
+            @forelse($articles as $article)
+                <div class="col-sm-4">
+                    <img src="{{$article->image}}" width="280" height="157">
+                    <h2><a href="{{route('article', $article->slug)}}">{{$article->title}}</a></h2>
+                    <p>{!! $article->description_short !!}</p>
+                </div>
+            @empty
+                <h2 class="text-center">Пусто</h2>
+            @endforelse
+        </div>
     </div>
 
 @endsection
