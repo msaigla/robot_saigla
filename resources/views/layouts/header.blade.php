@@ -24,6 +24,16 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="form-inline" style=" padding: 7px 5px;" action="{{route('search')}}" method="GET">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Поиск" name="q" value="{{ old('q') }}" required>
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                     <li><a href="{{ route('login') }}">Авторизация</a></li>

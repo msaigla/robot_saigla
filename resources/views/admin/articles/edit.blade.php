@@ -20,4 +20,5 @@
 
         </form>
     </div>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 @endsection

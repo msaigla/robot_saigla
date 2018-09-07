@@ -18,10 +18,20 @@
     background-color: #f6871f;
     border-color: #f78a24;
 }
+.btn-info {
+    color: #fff;
+    background-color: #af0b0b;
+    border-color: #af0b0b;
+}
 .btn-success:hover {
     color: #000;
     background-color: #ff922d;
     border-color: #f6871f;
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #e40303;
+    border-color: #ac0b0b;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -69,6 +79,20 @@
     background-color: #ff922d;
     border-color: #f6871f;
 }
+.btn-info:active:hover,
+.btn-info:active:focus,
+.btn-info:active.focus,
+.btn-info.active:hover,
+.btn-info.active:focus,
+.btn-info.active.focus,
+.open > .btn-info.dropdown-toggle:hover,
+.open > .btn-info.dropdown-toggle:focus,
+.open > .btn-info.dropdown-toggle.focus {
+    color: #fff;
+    background-color: #af0b0b;
+    border-color: #af0b0b;
+}
+
 body {
     font-family: Times New Roman, sans-serif;
     font-size: 14px;
