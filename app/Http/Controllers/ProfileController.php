@@ -59,7 +59,7 @@ class ProfileController extends Controller
                     'receiveLetter' => $request->input('receiveLetter'),
                     'birthday' => $request->input('birthday'),
                 ]);
-            return redirect('/home')->with('status', 'Профиль hhhизменен.');
+            return redirect('/home')->with('status', 'Профиль изменен.');
         }
     }
 

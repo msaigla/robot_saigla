@@ -32,7 +32,7 @@ Route::get('/register/confirm/{token}', 'Auth\RegisterController@confirmEmail')-
 //Soft
 Route::get('/', 'MainPageController@mainPage')->name('index');
 
-Route::get('search', 'Soft\SearchController@index')->name('search');
+Route::get('/search', 'Soft\SearchController@search')->name('search');
 
 Auth::routes();
 
