@@ -113,18 +113,18 @@ class ArticleController extends Controller
             $token = sha1(time());
             $file->move(public_path() . '/uploads/articles_image/' , $token);
             $url = '/uploads/articles_image/' . $token;
-            $request->merge(['image' => $url]);
-            $article->setAttribute('image', $url);
+            $article->update(['image' => $url]);
             //return redirect('/home')->with('status', $article->getAttribute('image'));
         }
         if ($request->hasFile('downloadFile')) {
-            $file = $request->File('downloadFile');;
-            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
-            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
-            $request->merge(['downloadFile' => $url]);
-            $article->setAttribute('downloadFile', $url);
+            app(Filesystem::class)->delete(public_path($article->getAttribute('downloadFile')));
+            $file = $request->File('downloadFile');
+            $token = sha1(time());
+            $file->move(public_path() . '/uploads/articles_files/' , $token . $file->getClientOriginalName());
+            $url = '/uploads/articles_files/' . $token . $file->getClientOriginalName();
+            $article->update(['downloadFile' => $url]);
         }
-        $article->update($request->except('slug', 'image', 'downloadFle'));
+        $article->update($request->except('slug', 'image', 'downloadFile'));
         $article->categories()->detach();
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
