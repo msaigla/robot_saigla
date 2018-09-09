@@ -49,20 +49,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('downloadFile')) {
-            $file = $request->File('downloadFile');
-            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
-            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
-            $request->merge(['downloadFile' => $url]);
-        }
+        $article = Article::create($request->except('image', 'downloadFile'));
         if ($request->hasFile('image')) {
             $file = $request->File('image');
             $token = sha1(time());
             $file->move(public_path() . '/uploads/articles_image/' , $token);
             $url = '/uploads/articles_image/' . $token;
-            $request->merge(['image' => $url]);
+            $article->update(['image' => $url]);
+//            $article->save();
+            //return redirect('/home')->with('status', $article->getAttribute('image'));
         }
-        $article = Article::create($request->all());
+        if ($request->hasFile('downloadFile')) {
+            $file = $request->File('downloadFile');;
+            $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
+            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            $article->update(['downloadFile' => $url]);
+        }
         if($request->input('categories')) :
             $article->categories()->attach($request->input('categories'));
         endif;
@@ -120,7 +122,7 @@ class ArticleController extends Controller
             $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
             $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
             $request->merge(['downloadFile' => $url]);
-            $article->update($request->only('downloadFile'));
+            $article->setAttribute('downloadFile', $url);
         }
         $article->update($request->except('slug', 'image', 'downloadFle'));
         $article->categories()->detach();
