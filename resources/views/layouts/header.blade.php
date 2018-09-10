@@ -25,10 +25,10 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <form class="form-inline" method="GET" style=" padding: 7px 5px;" action="{{route('search')}}">
+                    <form class="form-inline" style=" padding: 7px 5px;" action="{{route('search')}}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Поиск" id="search" name="search" required>
+                            <input class="form-control" type="text" placeholder="Поиск" id="search" name="search" required>
                             <span class="input-group-btn">
                                 <button class="btn btn-info" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </span>

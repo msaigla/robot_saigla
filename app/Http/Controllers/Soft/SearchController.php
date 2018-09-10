@@ -17,9 +17,17 @@ class SearchController extends Controller
         $max_page = 12;
         //Полнотекстовый поиск с пагинацией
         $results = DB::table('articles')
-            ->where('title', $q)
+            ->where(function($quest) use ($q) {
+                $quest->where('title', 'like', '%' . $q . '%')
+                    ->orWhere('description_short', 'like', '%' . $q . '%')
+                    ->orWhere('description', 'like', '%' . $q . '%');
+            })
+            ->where('published', '1')
             ->get();
-        return $request->all();
+        return view('soft.search.index',[
+            'lessons'=>$results,
+            'quest'=>$q,
+        ]);
     }
 
     public function search(Request $request){
