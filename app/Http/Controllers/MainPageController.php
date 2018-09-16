@@ -9,7 +9,7 @@ class MainPageController extends Controller
 {
     public function mainPage(){
         return view('blog.home', [
-            'articles'=>Article::LastArticles(6)->where('published', 1),
+            'articles'=>Article::where('published', 1)->LastArticles(6),
         ]);
     }
 }

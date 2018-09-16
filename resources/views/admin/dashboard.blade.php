@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="jumbotron">
-                    <p><span class="label label-primary">Посетителей {{$count_users}}</span></p>
+                    <p><span class="label label-primary">Посетителей 0</span></p>
                 </div>
             </div>
             <div class="col-sm-3">

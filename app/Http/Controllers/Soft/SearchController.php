@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Soft;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -13,19 +12,17 @@ class SearchController extends Controller
         $this->validate($request, [
             'search' => 'required',
         ]);
-       $q = $request->input('search');
+        $q = $request->input('search');
         $max_page = 12;
         //Полнотекстовый поиск с пагинацией
-        $results = DB::table('articles')
-            ->where(function($quest) use ($q) {
+        $results = Article::where(function($quest) use ($q) {
                 $quest->where('title', 'like', '%' . $q . '%')
                     ->orWhere('description_short', 'like', '%' . $q . '%')
                     ->orWhere('description', 'like', '%' . $q . '%');
             })
-            ->where('published', '1')
-            ->get();
+            ->where('published', '1');
         return view('soft.search.index',[
-            'lessons'=>$results,
+            'lessons'=>$results->paginate(12),
             'quest'=>$q,
         ]);
     }

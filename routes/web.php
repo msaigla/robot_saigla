@@ -13,7 +13,6 @@
 //Categories and Articles
 Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
 Route::get('/blog/article/{slug?}', 'BlogController@article')->name('article');
-
 //Administrator
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'roles', 'roles'=>['Админ']], function(){
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');

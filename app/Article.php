@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class Article extends Model
@@ -22,5 +23,15 @@ class Article extends Model
 
     public function scopeLastArticles($query, $count){
         return $query->orderBy('created_at', 'desc')->take($count)->get();
+    }
+
+    public function allCategories(Article $article){
+        $categories = $article->categories()->value('title');
+        return $categories;
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class );
     }
 }

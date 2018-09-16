@@ -6,12 +6,7 @@ use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Request;
-
-use Auth;
 
 class ArticleController extends Controller
 {
