@@ -14,7 +14,16 @@
                         <center><iframe width="560" height="315" src="{{$article->video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>
                     @endif
                     <div class="panel-body">
-                        <p>{!! $article->description !!}</p>
+                        {!! $article->description !!}
+                        <div class="post-meta">
+                            <span class="post-meta">Категории:
+                                @foreach($categories as $category)
+                                    {{$category->title}}
+                                @endforeach
+                            </span><br>
+                            <span class="post-meta-author">Автор: {{$user->name}}</span>
+                            <span class="post-meta-date">Дата публикации: {{$article->updated_at->format('d.m.Y G:i')}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
