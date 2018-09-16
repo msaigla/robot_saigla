@@ -117,20 +117,19 @@ body {
     font-size: 16px;
     margin: 30px 15% 40px;
 }
-/*.post-meta {*/
-    /*background: left top repeat-x url(../images/site/dotted.png);*/
-    /*!* clear: both; *!*/
-    /*color: #999;*/
-    /*font-size: 13px;*/
-    /*line-height: 21px;*/
-    /*padding: 15px 0;*/
-    /*margin-top: 10px;*/
-    /*!* margin: -2px 0 0; *!*/
-    /*text-align: right;*/
-/*}*/
-/*.post-meta .post-meta-categories{*/
-    /*padding: 0 6px 0 0;*/
-/*}*/
+.post-meta {
+    /* clear: both; */
+    color: #999;
+    font-size: 13px;
+    line-height: 21px;
+    padding: 15px 0;
+    margin-top: 10px;
+    /* margin: -2px 0 0; */
+    text-align: right;
+}
+.post-meta .post-meta-categories{
+    padding: 0 6px 0 0;
+}
 .post-meta .post-meta-author {
     padding: 0 6px 0 7px;
 }
