@@ -57,7 +57,7 @@ class ArticleController extends Controller
         if ($request->hasFile('downloadFile')) {
             $file = $request->File('downloadFile');;
             $file->move(public_path() . '/uploads/articles_files/' , $file->getClientOriginalExtension());
-            $url = '/uploads/articles_files/' . $file->getClientOriginalExtension();
+            $url = 'uploads/articles_files/' . $file->getClientOriginalExtension();
             $article->update(['downloadFile' => $url]);
         }
         if($request->input('categories')) :
@@ -116,7 +116,7 @@ class ArticleController extends Controller
             $file = $request->File('downloadFile');
             $token = sha1(time());
             $file->move(public_path() . '/uploads/articles_files/' , $token . $file->getClientOriginalName());
-            $url = '/uploads/articles_files/' . $token . $file->getClientOriginalName();
+            $url = 'uploads/articles_files/' . $token . $file->getClientOriginalName();
             $article->update(['downloadFile' => $url]);
         }
         $article->update($request->except('slug', 'image', 'downloadFile'));

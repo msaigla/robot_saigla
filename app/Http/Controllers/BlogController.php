@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use App\User;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -25,5 +26,10 @@ class BlogController extends Controller
             'user'=>$user,
             'categories'=>$article->categories()->where('published', 1)->get(),
         ]);
+    }
+
+    public function downloadFile(Request $request)
+    {
+        return response()->download($request->input('file'), $request->input('title'));
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Article extends Model
 {
 
-    protected $fillable = ['title', 'slug', 'description_short', 'description', 'image', 'downloadFileBool', 'downloadFile', 'videoBool', 'video', 'meta_title',
+    protected $fillable = ['title', 'slug', 'description_short', 'description', 'image', 'downloadFile', 'video', 'meta_title',
         'meta_description', 'meta_keyword', 'viewed', 'published', 'created_by', 'modified_id'];
 
     public function setSlugAttribute($value){
