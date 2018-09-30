@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', "Saigla - уроки по радиоэлектронике, arduino, микроконтроллерам, LEGO Mindstorms и т.д")
+@section('meta_description', "уроки по радиоэлектронике, arduino, микроконтроллерам, LEGO Mindstorms и т.д")
+@section('meta_keyword', "saigla, радиоэлектроника, микроконтроллеры, уроки, LEGO, Mindstorms, arduino, Raspberry, PI")
+
 @section('content')
 
     <div id="testCarousel" class="carousel slide" data-ride="carousel">
