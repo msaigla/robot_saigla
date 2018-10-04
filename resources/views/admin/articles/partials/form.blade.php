@@ -36,6 +36,8 @@
 <label for="">Src видео:</label>
 <input type="text" class="form-control" name="video" value="{{$article->video or ""}}">
 
+<label for="">Источник:</label>
+<input type="text" class="form-control" name="source" value="{{$article->source or ""}}">
 
 <label for="">Мета заголовок</label>
 <input type="text" class="form-control" name="meta_title" placeholder="Мета материала" value="{{$article->meta_title or ""}}">
