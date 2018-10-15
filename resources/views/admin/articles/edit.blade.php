@@ -30,8 +30,8 @@
             filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
         };
     </script>
-  <script>
-      CKEDITOR.replace( 'description', options );
-      CKEDITOR.replace( 'description_short', options );
-  </script>
+    <script>
+        CKEDITOR.replace( 'description', options );
+        CKEDITOR.replace( 'description_short', options );
+    </script>
 @endsection
