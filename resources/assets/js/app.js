@@ -7,10 +7,13 @@
 
 require('./bootstrap');
 
-$( document ).ready(function() {
-    CKEDITOR.replace( 'description_short' );
-    CKEDITOR.replace( 'description' );
-});
+// $( document ).ready(function() {
+//   if (CKEDITOR.replace( 'description_short' ))
+//   {
+//     CKEDITOR.replace( 'description_short' );
+//     CKEDITOR.replace( 'description' );
+//   }
+// });
 
 window.Vue = require('vue');
 
@@ -20,11 +23,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });
 
 $(".btn-refresh").click(function() {
     $.ajax({
