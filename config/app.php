@@ -189,6 +189,9 @@ return [
         //captcha
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
