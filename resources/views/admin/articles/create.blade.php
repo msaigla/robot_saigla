@@ -20,3 +20,9 @@
         </form>
     </div>
 @endsection
+@section('individualJS')
+  <script>
+      var editor = CKEDITOR.replace( 'description' );
+      editor = CKEDITOR.replace( 'description_short' );
+  </script>
+@endsection

@@ -20,5 +20,10 @@
 
         </form>
     </div>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+@endsection
+@section('individualJS')
+  <script>
+      var editor = CKEDITOR.replace( 'description' );
+      editor = CKEDITOR.replace( 'description_short' );
+  </script>
 @endsection

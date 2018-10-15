@@ -15,7 +15,8 @@
     <link href="{{ asset('css/saiglaStyle.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
+    <!-- <script src="{{ asset('/js/jquery.js') }}" type="text/javascript" charset="utf-8" ></script> -->
+    <script src="{{ asset('/js/ckeditor/ckeditor.js') }}" type="text/javascript" charset="utf-8" ></script>
 <body>
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top" style="background-color: #24292e;">
@@ -93,7 +94,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+@yield('individualJS')
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
