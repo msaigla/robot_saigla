@@ -137,27 +137,3 @@ body {
     border-left: 1px solid #dbdbdb;
     padding: 0 6px 0 7px;
 }
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: #eeeeee;
-    color: #555;
-}
-
-.post__title_link {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #444;
-    /* font-weight: 500;
-    font-size: 28px; */
-    line-height: 36.4px;
-    text-decoration: none;
-}
-
-.post__title_link:active {
-    color: #5790ac;
-    text-decoration: none;
-}
-
-.post__title_link:hover {
-    color: #548eaa;
-    text-decoration: none;
-}
