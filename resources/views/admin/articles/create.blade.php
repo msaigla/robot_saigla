@@ -18,7 +18,7 @@
             <input type="hidden" name="created_by" value="{{\Illuminate\Support\Facades\Auth::id()}}">
 
         </form>
-    </div>
+    </div>sas
 @endsection
 @section('individualJS')
   <script>
