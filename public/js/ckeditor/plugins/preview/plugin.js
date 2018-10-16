@@ -38,9 +38,27 @@
 					'<head>' +
 						baseTag +
 						'<title>' + editor.lang.preview.preview + '</title>' +
+						'<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\n' +
+                    	'<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>\n' +
+                    	'<script src="/js/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>\n' +
+                    	'<script src="/js/spoiler.js"></script>' +
 						CKEDITOR.tools.buildStyleHtml( editor.config.contentsCss ) +
 					'</head>' + bodyHtml +
+						+ '<div class="container">\n' +
+                    	'<div class="row">\n' +
+                    	'<div class="col-md-8 col-md-offset-2">\n' +
+                    	'<div class="panel panel-default">\n' +
+                    	'<div class="panel-heading"><h4>Тест название статьи</h4></div>' +
+						'<div class="panel-body">' +
 						editor.getData() +
+						'</div>\n' +
+						'</div>\n' +
+                    	'</div>\n' +
+                    	'</div>\n' +
+                    	'</div>\n' +
+                    	'</div>' +
+					'<script>hljs.initHighlightingOnLoad();</script>\n' +
+                    '<script src="/js/app.js"></script>' +
 					'</body></html>';
 			}
 

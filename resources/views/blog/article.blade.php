@@ -17,7 +17,7 @@
                         <form class="form-horizontal" action="{{route('articles.downloadFile')}}" method="get">
                             <input type="hidden" name="title" value="{{$article->title}}" id="title"/>
                             <input type="hidden" name="file" value="{{$article->downloadFile}}" id="file"/>
-                            <button class="btn btn-success btn-lg"><i class="fa fa-download" aria-hidden="true"></i> Скачать</button>
+                            <button class="btn btn--small btn-cta btn--addon__download" style="color: white; background-color: #af0b0b; margin: 15px;"><i class="fa fa-download" aria-hidden="true"></i> Скачать</button>
                         </form>
                     @endif
                     <div class="panel-body">
