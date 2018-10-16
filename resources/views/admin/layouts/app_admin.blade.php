@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/editBootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/saiglaStyle.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- <script src="{{ asset('/js/jquery.js') }}" type="text/javascript" charset="utf-8" ></script> -->
