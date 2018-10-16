@@ -30,7 +30,7 @@
         };
     </script>
     <script>
-        CKEDITOR.replace( 'description');
-        CKEDITOR.replace( 'description_short');
+        CKEDITOR.replace( 'description', options);
+        CKEDITOR.replace( 'description_short', options);
     </script>
 @endsection
