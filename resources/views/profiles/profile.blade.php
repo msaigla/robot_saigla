@@ -10,6 +10,10 @@
                     <form class="form-horizontal" method="POST" action="{{ url('addProfile') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
+                        <img src="{{ Auth::user()->avatar }}" class="img-circle" style="width: 150px; height: 150px; float: left; margin-right: 25px;">
+                        <h2>{{ Auth::user()->name }}</h2>
+                        <p>{{ Auth::user()->aboutOneself }}</p>
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Ваше имя:</label>
 

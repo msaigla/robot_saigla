@@ -6,6 +6,11 @@
 
 @section('content')
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div id="testCarousel" class="carousel slide" data-ride="carousel">
         <!-- Слайды карусели -->
         <div class="carousel-inner">

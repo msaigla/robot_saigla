@@ -24,8 +24,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['Пользователь', 'Админ']);
-        return view('home');
+        if ($request->user() != null) {
+            $request->user()->authorizeRoles(['Пользователь', 'Админ']);
+            return view('home');
+        }
+        else
+            return back()->with('status', 'Вы не авторизованы!');
     }
 
     public function refreshCaptcha(){

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -62,5 +63,11 @@ class ProfileController extends Controller
             return redirect('/home')->with('status', 'Профиль изменен.');
         }
     }
+
+//    public function otherProfile(Request $request){
+//        return view('profiles.other_user', [
+//            'user'=>User::where('id', $request['idUser'])->first(),
+//        ]);
+//    }
 
 }
