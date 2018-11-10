@@ -9,9 +9,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4>{{$article->title}}</h4></div>
+                    <div class="panel-heading"><h2>{{$article->title}}</h2></div>
                     @if($article->video != null)
-                        <center><iframe width="560" height="315" src="{{$article->video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>
+                        <center>{!! $article->video !!}</center>
                     @endif
                     @if($article->downloadFile != null)
                         <form class="form-horizontal" action="{{route('articles.downloadFile')}}" method="get">

@@ -8,7 +8,7 @@
                     <div class="panel-heading">Личный кабинет</div>
                         <img src="{{ $user->avatar }}" class="img-circle" style="width: 150px; height: 150px; float: left; margin-right: 25px;">
                         <h2>{{ $user->name }}</h2>
-                        <p>{{ $user->aboutOneself }}</p>
+                        <p>{!! $user->aboutOneself !!}</p>
                     </div>
                 </div>
             </div>

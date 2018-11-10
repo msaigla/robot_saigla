@@ -8,6 +8,28 @@
 .navbar-default {
     background-color: #24292e;
 }
+
+.panel-default > .panel-heading {
+    color: #fff;
+    background-color: #24292e;
+    border-color: #24292e;
+}
+
+.panel-heading h2{
+    color: #fff;
+    margin: 0;
+    padding: 18px;
+    font-size: 48px;
+    text-align: center;
+}
+
+.panel-heading h2{
+    color: #fff;
+    margin: 0;
+    padding: 18px;
+    font-size: 48px;
+    text-align: center;
+}
 /*.btn-primary {*/
     /*color: #000;*/
     /*background-color: #00c700;*/
@@ -103,7 +125,7 @@ body {
 .carousel .item{
     background: #24292e;
     text-align: center;
-    height: 300px !important;
+    min-height: 300px;
 }
 .carousel h2{
     color: #fff;

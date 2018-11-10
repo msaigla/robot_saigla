@@ -34,7 +34,7 @@
 <input id="downloadFile" type="file" class="form-control" name="downloadFile">
 
 <label for="">Src видео:</label>
-<input type="text" class="form-control" name="video" value="{{$article->video or ""}}">
+<textarea class="form-control" name="video">{{$article->video or ""}}</textarea>
 
 <label for="">Источник:</label>
 <input type="text" class="form-control" name="source" value="{{$article->source or ""}}">
