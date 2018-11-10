@@ -14,6 +14,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/saiglaStyle.css') }}" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png?v=69PnEbK4lN') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png?v=69PnEbK4lN') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png?v=69PnEbK4lN') }}">
+    <link rel="manifest" href="{{ asset('favicon/site.webmanifest?v=69PnEbK4lN') }}">
+    <link rel="mask-icon" href="{{ asset('favicon/safari-pinned-tab.svg?v=69PnEbK4lN') }}" color="#24292e">
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico?v=69PnEbK4lN') }}">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#24292e">
+    <meta name="theme-color" content="#24292e">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>
