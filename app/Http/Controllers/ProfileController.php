@@ -31,7 +31,7 @@ class ProfileController extends Controller
             $img = Image::make($file);
             $width = $img->width();
             $height = $img->height();
-            $img = $width <= $height ? $img->crop($width, $width)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png') : $img->crop($height, $height)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png');
+            $img = $width <= $height ? $img->crop($width, $width)->resize(200, 200)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png') : $img->crop($height, $height)->resize(200, 200)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png');
             //$file->move(public_path() . '/uploads/avatars/' , $token . Auth::user()->id . '.png');
             $url = '/uploads/avatars/' . $token . Auth::user()->id . '.png';
             DB::table('users')
