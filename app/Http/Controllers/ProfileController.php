@@ -28,8 +28,12 @@ class ProfileController extends Controller
             app(Filesystem::class)->delete(public_path($url));
             $token = sha1(time());
             $file = $request->File('avatar');
-            $file->move(public_path() . '/uploads/avatars/' , $token . Auth::user()->id);
-            $url = '/uploads/avatars/' . $token . Auth::user()->id;
+            $img = Image::make($file);
+            $width = $img->width();
+            $height = $img->height();
+            $img = $width <= $height ? $img->crop($width, $width)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png') : $img->crop($height, $height)->save(public_path() . '/uploads/avatars/' . $token . Auth::user()->id . '.png');
+            //$file->move(public_path() . '/uploads/avatars/' , $token . Auth::user()->id . '.png');
+            $url = '/uploads/avatars/' . $token . Auth::user()->id . '.png';
             DB::table('users')
                 ->where('id', Auth::user()->id)
                 ->update([
@@ -39,6 +43,7 @@ class ProfileController extends Controller
                     'birthday' => $request->input('birthday'),
                     'avatar' => $url,
                 ]);
+
             //open image
 //            $img = Image::make($url);
 //            $img->resize(400, null, function ($constraint) {
