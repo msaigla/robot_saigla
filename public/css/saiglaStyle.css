@@ -259,3 +259,63 @@ body {
 .btn-success:hover {
     background-color: rgb(247, 158, 35);
 }
+
+/* Комментарии */
+.commentlist group{
+    clear: both;
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style-type: none!important;
+    margin-left: 0 !important;
+}
+ol.commentlist, li.comment {
+    clear: both;
+    margin: 0 0 1em 0;
+    padding: 0;
+    list-style-type: none!important;
+}
+
+.comment-container {
+    /*padding: 5px;*/
+    border: 1px solid #CFCFCF;
+    margin-bottom: 1em;
+}
+.comment-author {
+    float: left;
+    margin: 10px 10px 0 15px;
+    max-width: 85px;
+}
+.comment-author img {
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+    margin: 0 0 0 5px;
+}
+.fn {
+    font-style: normal;
+    text-align: center;
+    font-size: 90%;
+    margin: 10px 0 0 0;
+    display: block;
+}
+.intro {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 20px;
+}
+.commentDate {
+    float: left;
+    margin: 0 0 0px 0;
+    color: #b77a2b;
+}
+.comment-meta {
+    margin: 0px 0 0px 120px;
+    padding: 15px 20px 10px 20px;
+    border-left: 1px solid #CFCFCF;
+    min-height: 125px;
+}
+.display-comment .display-comment {
+    margin-left: 40px
+}
+.form-control-comment{
+    max-width: 150px;
+}

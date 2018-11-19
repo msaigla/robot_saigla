@@ -30,8 +30,13 @@ class Article extends Model
         return $categories;
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function comments()
     {
-        return $this->hasMany(Comment::class );
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 }

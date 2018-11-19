@@ -32,8 +32,35 @@
                             @if($article->source != null)
                               <span class="post-meta-date"><a href="{{$article->source}}"> Источник</a></span>
                             @endif
-                            <span class="post-meta-date">Дата публикации: {{$article->updated_at->format('d.m.Y G:i')}}</span>
+                            <span class="post-meta-date">Дата публикации: {{$article->updated_at->format('d.m.Y в G:i')}}</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Коментарии:</h3>
+                @include('blog.partials._comment_replies', ['comments' => $article->comments, 'article_id' => $article->id])
+                <hr />
+                <hr />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>Добавить комментарий:</h4>
+                        @guest
+                            <h5>Вы должны войти в систему, чтобы оставить комментарий.</h5>
+                        @else
+                            <form method="POST" action="{{ route('comment.add') }}">
+                                {{csrf_field()}}
+                                <div class="form-group">
+                                    <textarea rows="3" class="form-control" maxlength="255" id="comment_body" name="comment_body"></textarea>
+                                    <input type="hidden" name="article_id" value="{{ $article->id }}" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg" value="Add Comment">Коментировать <i class="fa fa-comment-o" aria-hidden="true"></i></button>
+                                </div>
+                        </form>
+                        @endguest
                     </div>
                 </div>
             </div>

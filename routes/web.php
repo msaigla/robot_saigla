@@ -14,6 +14,8 @@
 Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
 Route::get('/blog/article/{slug?}', 'BlogController@article')->name('article');
 Route::get('/downloadFile', 'BlogController@downloadFile')->name('articles.downloadFile');
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 //Administrator
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'roles', 'roles'=>['Админ']], function(){
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
