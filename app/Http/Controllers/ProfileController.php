@@ -19,6 +19,16 @@ class ProfileController extends Controller
         return view('profiles.profile');
     }
 
+    public function otherProfile($user_id){
+        $user = User::where('id', $user_id)->first();
+        if(Auth::user() && Auth::user()->id == $user->id)
+            return view('home');
+        return view('profiles.other_user', [
+            'user' => $user,
+        ]);
+    }
+
+
     public function addProfile(Request $request){
         $this->validate($request, [
             'name' => 'required',
@@ -68,11 +78,4 @@ class ProfileController extends Controller
             return redirect('/home')->with('status', 'Профиль изменен.');
         }
     }
-
-//    public function otherProfile(Request $request){
-//        return view('profiles.other_user', [
-//            'user'=>User::where('id', $request['idUser'])->first(),
-//        ]);
-//    }
-
 }

@@ -22,7 +22,7 @@ class SearchController extends Controller
             })
             ->where('published', '1');
         return view('soft.search.index',[
-            'lessons'=>$results->paginate(12),
+            'articles'=>$results->paginate(12),
             'quest'=>$q,
         ]);
     }

@@ -28,7 +28,7 @@
                                     {{$category->title}}
                                 @endforeach
                             </span><br>
-                            <span class="post-meta-author"> Автор: {{$user->name}} </span>
+                            <span class="post-meta-author"> Автор: <a href="{{route('otherProfile', $user->id)}}">{{$user->name}}</a> </span>
                             @if($article->source != null)
                               <span class="post-meta-date"><a href="{{$article->source}}"> Источник</a></span>
                             @endif

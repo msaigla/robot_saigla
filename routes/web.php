@@ -28,6 +28,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'roles', 'r
 
 //Users
 Route::get('/profile', 'ProfileController@profile')->middleware('auth');
+Route::get('/profile/other_user={id?}', 'ProfileController@otherProfile')->name('otherProfile');
 Route::post('/addProfile', 'ProfileController@addProfile')->middleware('auth');
 Route::get('/register/confirm/{token}', 'Auth\RegisterController@confirmEmail')->name('confirmEmail');
 

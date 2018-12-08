@@ -119,7 +119,7 @@ body {
     font-family: 'Fira Sans',sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    color: #636b6f;
+    color: #000000;
     background-color: #f5f8fa;
 }
 .carousel .item{
@@ -188,9 +188,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: #24292e;
     font-weight: 500;
-    font-size: 28px;
-    line-height: 36.4px;
+    font-size: 24px;
     text-decoration: none;
+    margin: 7px 5%;
+    float: left;
 }
 
 #editor-builder #draggable-plugins .all-elements-option a, #editor-builder .languages .all-elements-option a, #forum-sort .form-submit, .add-ons-list .views-row .add_to_basket, .add-ons-list .views-row .check-details, .add-ons-list .views-row .remove_from_basket, .add-ons-list .views-row .required, .add-plugin .field-type-image-form button, .add-plugin .field-type-image-form input[name=field_addon_logo_und_0_remove_button], .add-plugin .field-type-image-form input[type=file], .add-plugin input[type=submit], .add-plugin select[type=submit], .btn--small, .most-popular__wrapper .add_to_basket, .plugin-edit .field-type-image-form button, .plugin-edit .field-type-image-form input[name=field_addon_logo_und_0_remove_button], .plugin-edit .field-type-image-form input[type=file], .plugin-edit input[type=submit], .plugin-edit select[type=submit], .plugin-release .field-type-image-form button, .plugin-release .field-type-image-form input[name=field_addon_logo_und_0_remove_button], .plugin-release .field-type-image-form input[type=file], .plugin-release input[type=submit], .plugin-release select[type=submit] {
@@ -318,4 +319,29 @@ ol.commentlist, li.comment {
 }
 .form-control-comment{
     max-width: 150px;
+}
+
+.article {
+    margin-bottom: 20px;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.article>img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+}
+
+.article>p {
+    margin: 7px 5%;
+    color: #333;
+}
+
+.footer {
+    margin: 7px 5%;
+    color: #333;
+    width: 90%;
+    text-align: right;
 }
