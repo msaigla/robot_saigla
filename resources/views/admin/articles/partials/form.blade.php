@@ -21,11 +21,11 @@
     <option value="0"> -----Без родителя-----</option>
     @include('admin.articles.partials.categories', ['categories' => $categories])
 </select>
-<label for="">Краткое описание</label>
-<textarea class="form-control" id="description_short" name="description_short">{{$article->description_short or ""}}</textarea>
+<label for="description_short">Краткое описание</label>
+<textarea class="form-control" id="description_short" name="description_short" required >{{$article->description_short or ""}}</textarea>
 
-<label for="">Полное описание</label>
-<textarea class="form-control" id="description" name="description">{{$article->description or ""}}</textarea>
+<label for="description">Полное описание</label>
+<textarea class="form-control" id="description" name="description" required >{{$article->description or ""}}</textarea>
 
 <label for="">Фото статьи:</label>
 <input id="image" type="file" class="form-control" name="image">
@@ -33,20 +33,20 @@
 <label for="">Файл:</label>
 <input id="downloadFile" type="file" class="form-control" name="downloadFile">
 
-<label for="">Src видео:</label>
-<textarea class="form-control" name="video">{{$article->video or ""}}</textarea>
+<label for="video">Src видео:</label>
+<textarea class="form-control" id="video" name="video">{{$article->video or ""}}</textarea>
 
 <label for="">Источник:</label>
 <input type="text" class="form-control" name="source" value="{{$article->source or ""}}">
 
 <label for="">Мета заголовок</label>
-<input type="text" class="form-control" name="meta_title" placeholder="Мета материала" value="{{$article->meta_title or ""}}">
+<input type="text" class="form-control" name="meta_title" placeholder="Мета материала" value="{{$article->meta_title or ""}}" required>
 
 <label for="">Мета описание</label>
-<input type="text" class="form-control" name="meta_description" placeholder="Мета описания" value="{{$article->meta_description or ""}}">
+<input type="text" class="form-control" name="meta_description" placeholder="Мета описания" value="{{$article->meta_description or ""}}" required>
 
 <label for="">Мета слова</label>
-<input type="text" class="form-control" name="meta_keyword" placeholder="Мета слова(через запятую)" value="{{$article->meta_keyword or ""}}">
+<input type="text" class="form-control" name="meta_keyword" placeholder="Мета слова(через запятую)" value="{{$article->meta_keyword or ""}}" required>
 
 <hr/>
 
