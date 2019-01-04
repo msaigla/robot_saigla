@@ -44,7 +44,7 @@
     <footer class="page-footer font-small blue pt-4">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://saigla.ru"> SAIGLA.RU</a> vAlpha
+        <a href="{{route('index')}}"> SAIGLA.RU</a> vAlpha
       </div>
     <!-- Copyright -->
     </footer>
