@@ -12,6 +12,6 @@
              <a href="{{url("/blog/category/$category->slug")}}">
                  {{$category->title}}
              </a>
-             @endif
+     @endif
          </li>
-            @endforeach
+@endforeach
